@@ -2,11 +2,11 @@
 Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-answer, translate to language from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries/translation and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation.
 
 ## Requirements
-'''
+```
 pytorch 1.6.0
 streamlit
 transformers 3.1.0
-'''
+```
 
 ## Installation
 - Install conda/miniconda.
