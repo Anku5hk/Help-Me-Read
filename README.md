@@ -1,4 +1,4 @@
-# Help-Me-Read [![Open In Colab](https://colab.research.google.com/drive/1D-Gntt8EAPWyP2QEpKV6dnZCglTbXi32?usp=sharing)]
+# Help-Me-Read [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1D-Gntt8EAPWyP2QEpKV6dnZCglTbXi32?usp=sharing)
 Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-answer, translate to language from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries/translation and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation.
 
 ## Installation
