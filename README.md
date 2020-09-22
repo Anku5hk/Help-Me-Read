@@ -19,6 +19,7 @@ transformers 3.1.0
 #### Note: When running this for the first time models will be downloaded(~500mb).
 
 ## Future
+- Process large text.
 - Reduce the inference time by using smaller models.
 - Take inputs from URLs directly.
 - Seperate application(besides streamlit version).
