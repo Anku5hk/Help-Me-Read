@@ -18,7 +18,7 @@ Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-an
 ## Screens
 Home
 ![3](/screens/home.png)
-Summary
-![2](/screens/summarize.png)
+Summarization
+![2](/screens/QAs.png)
 Questions and Answers
-![1](/screens/QAs.png)
+![1](/screens/summarize.png)
