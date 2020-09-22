@@ -14,3 +14,5 @@ Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-an
 - Reduce the inference time by using smaller models.
 - Take inputs from URLs directly.
 - Seperate application(besides streamlit version).
+
+## Screens
