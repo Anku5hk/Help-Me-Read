@@ -9,6 +9,7 @@ Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-an
 
 ## Run
 - Just hit `$ streamlit run to_the_folder/help_me_read.py` inside Anaconda prompt.
+### Note: When running this for the first time the models will be downloaded(~500mb).
 
 ## Future
 - Reduce the inference time by using smaller models.
