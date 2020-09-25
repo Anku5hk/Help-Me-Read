@@ -23,9 +23,21 @@ def get_summary(text):
     output = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return output
 
+# capitilize text of summary
+def capitilize_text(source):
+    stop, output = '.', ''
+    i,j = 0, 0
+    for i, w in enumerate(source):
+        if w == stop:
+            sen = source[j:i+1].capitalize() 
+            j = i+2
+            output+=sen      
+    output+=source[j:].capitalize()       
+    return output
+
 # translate text
-def translate_text(text):   
-    text = "translate English to German:"+ text
+def translate_text(text,option):   
+    text = "translate English to "+ option +": "+ text
     tokenized_text = tokenizer.encode(text, return_tensors="pt").to(device)
     summary_ids = model.generate(tokenized_text, num_beams=4, no_repeat_ngram_size=2,min_length=30,max_length=100, early_stopping=True)
     output = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
@@ -34,6 +46,7 @@ def translate_text(text):
 # questions and answers
 def get_questions(text):
     result = question_generator(text)
+    st.markdown('**Question Answers:**')
     for res in result:
         st.markdown('**'+res['question']+'**')
         st.text(res['answer']) 
@@ -41,15 +54,18 @@ def get_questions(text):
 def main():
     st.title('HelpMeRead')
     message = st.text_area("Enter Text: ")
-    Translate = st.button("Translate To German")
+    option = st.selectbox("Select language: ", ('German', 'French', 'Romanian'))
+    Translate = st.button("Translate")
     Summarize = st.button("Summarize")
     QAs = st.button("QAs")
     load_models()
     if Summarize:
         result = get_summary(message)
-        st.write(result)
+        st.markdown('**Summary:**')
+        st.write(capitilize_text(result))
     if Translate:
-        result = translate_text(message)
+        result = translate_text(message, option)
+        st.markdown('**Translation:**')
         st.write(result)
     if QAs:
         get_questions(message)   
