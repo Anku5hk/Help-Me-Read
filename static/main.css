@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+body
+{
+  background-color: #000;
+  padding: 1%;
+  color: #ccc;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+
+.console{
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  }
+  
+input[type="button"]{
+    cursor: pointer;
+  }
+

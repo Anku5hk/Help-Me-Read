@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<main>
+    <div class="main"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</main>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-dark bg-dark" style="color:black;">
+    <h3 style="color:ghostwhite;">Help Me Read</h3>
+    <a href="https://github.com/Anku5hk/Help-Me-Read"><img src="static/github-icon.png" width="50" height="50"></a>
+  </nav>
+<div class="container" style="height: max-content;overflow-x: auto;text-align: center;margin-top: 50px;">
+    <form method="POST">
+        <textarea id="input_area" class="form-control" style="width:520px;margin-left: 200px;" name="input_text" rows="10" cols="10" autofocus>
+        </textarea>
+        <div class="content2" >
+        <input type="button" id="summarize_btn" class="btn btn-light" value="Summarize" style="margin-right: 250px;margin-top: 20px;" onclick="Summarize()" />
+        <input type="button" id="genqa_btn" class="btn btn-light" value="Generate QA" style="margin-right: 200px;margin-top: 20px;" onclick="Generate_questions()" />
+    </div>
+    <div><div id='loading' class="spinner-border text-light" style="margin-top: 50px;margin-right: 200px;" hidden></div>
+    </div>
+    
+        
+        <!-- question answers div  --> 
+        <div id="qa_div" class="d-none" style="margin-right: 200px;margin-top: 150px;"> 
+            <h4 id='label3' class="labels" for='text' style=" font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;color: ghostwhite;" hidden>
+                Generated Questions</h4>
+            <h5 id="question_ele" class="console" style=" font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;color: ghostwhite;margin-top: 20px;">
+                <span></span><span id="caption2"></span><span id="cursor2">|</span>
+            </h5>
+                <input type="text" id="input_textbox" style="margin-top: 20px;" hidden/>
+                <input type="button" id="evaluate_btn" value="Evaluate Answers" style="margin-top: 20px;" onclick="Verify_answers()" hidden/>
+        </div>
+         <!-- question answers div end  -->   
+        <div id="sum_div" class="d-none" style="margin-right: 200px;margin-top: 260px;height: 500px;">
+            <h4 for='text'class="labels" style=" font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;color: ghostwhite;">
+                Summary: </h4>
+            <h5 class="console" style=" font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;color: ghostwhite;margin-top: 20px;">
+                <span></span><span id="caption1"></span><span id="cursor1">|</span>
+            </h5>
+        </div>   
+            
+    </form> 
+</div> 
+{% endblock %}
