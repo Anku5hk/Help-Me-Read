@@ -1,13 +1,11 @@
 # Help-Me-Read [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1D-Gntt8EAPWyP2QEpKV6dnZCglTbXi32?usp=sharing)
-Awesome app created with Streamlit + HuggingFace🤗 to get summary, question-answer, translate to language from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries/translation and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation.
+An End-To-End machine learning web application created with Flask + BootStrap + HuggingFace🤗 to get summary and generate question-answer from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation.
 #### Some details: 
-The Goal of this project is to meaningfully summarize huge posts/blogs using machine learning. Also to get text marked for important sentences, to save time while reading huge posts. 
-It uses T5 model, pre-trained on C4(Colossal Clean Crawled Corpus) which is a very huge unlabeled text dataset, achieve SOTA results on many NLP benchmarks while being flexible enough to be fine-tuned for other tasks. Using T5 allows to use the same model, loss function, and hyperparameters on any NLP task, including machine translation, document summarization, question answering, and classification tasks. Using T5 is so simple that one needs to input text like "summarize: text-needed-to-be-summarize-here" and it'll give output summary for the text, Awesome!!. I have used the t5-small(which has 60 million parameters)for summarization which is the smallest available and the HuggingFace version due to its ease of use. T5 does abstractive summarization which is a technique in which the summary is generated and not extracted. For question answer generation there were new recent models like MiniLM and ProphetNet but they are a bit hard to get working. The defualt T5 only generates answers given text and questions, So currently i have used another pretrained t5-small which can generate QAs given only text and it works just fine.   
-
+This is a Web application is created with flask(a python microframework), for NLP models HuggingFace is used and for styling and other purposses HTML+CSS+Javascript is used. The goal was to help user read their text, it can be a blog text, some long passage etc. This application takes advantage of multitask model nameed T5 to generate abstractive summary, generate questions from the given text and verify thier answers using a NLP technique called Semantic textual similarity (MRPC in short).
+To get started, user needs to input some text they want to read, then can summarize the given text or also can generate questions based on the texts summary. User can later attend the questions generated to verify their knowledge about the text and can also get results of they did from the model. 
 ## Requirements
 ```
-pytorch 1.6.0
-streamlit
+pytorch 1.6.0 or above
 transformers 3.1.0
 ```
 
@@ -15,24 +13,18 @@ transformers 3.1.0
 - Install conda/miniconda.
 - Inside Anaconda prompt create a new env using requirements.txt `$ conda env create --file requirements.txt -name myenv`
 - Activate the env `$ activate myenv`
-- Install punkt `$ python -m nltk.downloader punkt` (i couldn't put this one inside requirements.txt).
+- Then git clone this ['repo'](https://github.com/patil-suraj/question_generation) into the directory.
+- Finally Install punkt `$ python -m nltk.downloader punkt`.
 
 ## Run
-- Just hit `$ streamlit run to_the_folder/help_me_read.py` inside Anaconda prompt.
-#### Note: When running this for the first time models will be downloaded(~500mb).
+- From Anaconda prompt cd to the directory and hit `python app.py`.
+#### Note: When running this for the first time models will be downloaded(~400mb).
 
 ## Future
 - Cheap/Efficient Extractive Summarization.
 - Get MiniLM to work.
-- Process large text.
 - Reduce the inference time by using smaller models.
 - Take inputs from URLs directly.
-- Seperate application(besides streamlit version).
 
 ## Screens
 Home
-![3](/screens/home.png)
-Summarization
-![2](/screens/QAs.png)
-Questions and Answers
-![1](/screens/summarize.png)
