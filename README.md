@@ -6,14 +6,13 @@ To get started, user needs to input some text they want to read, then can summar
 ## Requirements
 ```
 pytorch 1.6.0 or above
-transformers 3.1.0
+transformers 3.1.0 or above
 ```
 
 ## Installation
 - Install conda/miniconda.
-- Inside Anaconda prompt create a new env using requirements.txt `$ conda env create --file requirements.txt -name myenv`
-- Activate the env `$ activate myenv`
-- Then git clone this ['repo'](https://github.com/patil-suraj/question_generation) into the directory.
+- Inside Anaconda prompt create a new env using requirements.txt `$ conda env create --file requirements.txt -name myenv`.
+- Activate the env `$ activate myenv`.
 - Finally Install punkt `$ python -m nltk.downloader punkt`.
 
 ## Run
