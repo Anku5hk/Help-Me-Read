@@ -11,9 +11,11 @@ transformers 3.1.0 or above
 
 ## Installation
 - Install conda/miniconda.
-- Inside Anaconda prompt create a new env using requirements.txt `$ conda env create --file requirements.txt -name myenv`.
-- Activate the env `$ activate myenv`.
-- Finally Install punkt `$ python -m nltk.downloader punkt`.
+- Inside Anaconda prompt create a new env `$ conda env create -name helpmeread_env`
+- Activate the env `$ activate helpmeread_env`
+- Upgrade pip `$ pip install -U pip`
+- Install dependencies `$ pip install -r requirements.txt`
+- Finally Install punkt `$ python -m nltk.downloader punkt`
 
 ## Run
 - From Anaconda prompt cd to the directory and hit `python wsgi.py`.
