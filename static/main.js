@@ -14,7 +14,7 @@ document.getElementById('input_textbox').addEventListener("keypress", function (
     testErasingEffect(captionEl2);
     setTimeout(function (){
       next(t++);
-    }, 3000);
+    }, 2000);
   } 
 });
 
@@ -43,7 +43,7 @@ function next(a){
       // verify button
       document.getElementById("input_textbox").hidden = true;
       setTimeout(function (){
-        testTypingEffect("Press verify to check your answers...", captionEl2);
+        testTypingEffect("Press Evaluate.", captionEl2);
        }, 1000);
     setTimeout(function (){
       document.getElementById("evaluate_btn").hidden = false;
@@ -62,7 +62,7 @@ function type(captionEl) {
   if(captionLength < caption.length+1) {
       setTimeout(function (){
           type(captionEl);
-      }, 50);
+      }, 30);
   } else {
       captionLength = 0;
       caption = '';
@@ -87,7 +87,7 @@ function erase(captionEl) {
   if(captionLength >= 0) {
       setTimeout(function (){
           erase(captionEl);
-      }, 50);
+      }, 30);
   } else {
       captionLength = 0;
       caption = '';
@@ -167,7 +167,6 @@ function Summarize(){
 function Generate_questions(){
   document.getElementById('loading').hidden = false;
   document.getElementById('sum_div').className = 'd-none';
-
   let text = document.getElementById("input_area").value;
   var entry = {
     input_text: text,
@@ -209,6 +208,7 @@ function Generate_questions(){
 }  
 
 function Verify_answers(){
+  testErasingEffect(captionEl2);
   document.getElementById('loading').hidden = false;
   document.getElementById("evaluate_btn").hidden = true;
   document.getElementById('label3').hidden = true;
@@ -233,7 +233,9 @@ function Verify_answers(){
       response.json().then(function(data) {
         document.getElementById('loading').hidden = true;
         console.log(data.num_of_correct)
-        testTypingEffect(data.num_of_correct, captionEl2);
+        setTimeout(function (){
+          testTypingEffect(data.num_of_correct, captionEl2);
+          }, 1000);
       });
     })
     .catch(function(error) {
