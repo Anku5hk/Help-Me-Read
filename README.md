@@ -16,13 +16,12 @@ transformers 3.1.0 or above
 - Finally Install punkt `$ python -m nltk.downloader punkt`.
 
 ## Run
-- From Anaconda prompt cd to the directory and hit `python app.py`.
+- From Anaconda prompt cd to the directory and hit `python wsgi.py`.
 #### Note: When running this for the first time models will be downloaded(~400mb).
 
 ## Future
 - Cheap/Efficient Extractive Summarization.
 - Get MiniLM to work.
-- Reduce the inference time by using smaller models.
 - Take inputs from URLs directly.
 
 ## Screens
