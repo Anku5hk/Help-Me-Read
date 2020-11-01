@@ -45,6 +45,7 @@ soupsieve==2.0.1
 tensorboard==2.3.0
 tensorboard-plugin-wit==1.7.0
 tensorflow-gpu-estimator==2.3.0
+torch==1.6.0
 termcolor==1.1.0
 tokenizers==0.8.0rc4
 tqdm==4.50.0
