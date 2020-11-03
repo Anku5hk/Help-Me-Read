@@ -15,7 +15,7 @@ transformers 3.1.0 or above
 - Inside Anaconda prompt create a new env `$ conda env create -name helpmeread_env`
 - Activate the env `$ activate helpmeread_env`
 - Upgrade pip `$ pip install -U pip`
-- Install dependencies `$ pip install -r requirements.txt`
+- Install dependencies `$ pip install -r requirements.txt --no-cache-dir`
 - Finally Install punkt `$ python -m nltk.downloader punkt`
 - DONE!!. Alternatively one can install using the `.dockerfile`.
 ## Run
