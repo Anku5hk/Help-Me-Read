@@ -19,7 +19,7 @@ transformers 3.1.0 or above
 - Finally Install punkt `$ python -m nltk.downloader punkt`
 - DONE!!. Alternatively one can install using the `.dockerfile`.
 ## Run
-- From Anaconda prompt cd to the directory and hit `python wsgi.py`.
+- From Anaconda prompt cd to the directory and hit `gunicorn --bind 0.0.0.0:5000 wsgi:app`.
 #### Note: When running this for the first time models will be downloaded(~400mb).
 
 ## Future
