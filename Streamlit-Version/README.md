@@ -31,8 +31,8 @@ transformers 3.1.0
 
 ## Screens
 Home
-![3](Streamlit-Version/screens/home.png)
+![3](/Streamlit-Version/screens/home.png)
 Summarization
-![2](Streamlit-Version/screens/QAs.png)
+![2](/Streamlit-Version/screens/QAs.png)
 Questions and Answers
-![1](Streamlit-Version/screens/summarize.png)
+![1](/Streamlit-Version/screens/summarize.png)
