@@ -28,4 +28,6 @@ transformers 3.1.0 or above
 - Take inputs from URLs directly.
 
 ## Screens
-Home
+Summarize
+![1](/[ Streamlit Version ]/screens/sumaary_gif.gif)
+![2](/[ Streamlit Version ]/screens/gen_qa_gif.gif)
