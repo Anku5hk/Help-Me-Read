@@ -28,7 +28,7 @@ transformers 3.1.0 or above
 - Take inputs from URLs directly.
 
 ## Screens
-Summarize
+Summarize.
 ![1](/Streamlit-Version/screens/summary_gif.gif)
-Generate QA
+Generate QA.
 ![2](/Streamlit-Version/screens/gen_qa_gif.gif)
