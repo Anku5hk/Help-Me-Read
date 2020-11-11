@@ -28,7 +28,7 @@ question_generator = pipeline("question-generation", model=t5_small_qa_qg, token
 ans_model=t5_small_qa_qg, ans_tokenizer=Tokenizer2, use_cuda=device)
 
 print('Done!!')
-org_answers = None
+org_answers = []
 
 # capitilize text of summary
 def capitilize_text(source):
@@ -49,7 +49,6 @@ def get_summary(text):
         tokenized_text = Tokenizer1.encode(text, return_tensors="pt")
         summary_ids = t5_base.generate(tokenized_text, num_beams=4, no_repeat_ngram_size=2,
         min_length=30,max_length=1000, early_stopping=True)
-
         output = Tokenizer1.decode(summary_ids[0], skip_special_tokens=True)
     except :
         print('Error.....')   
@@ -67,9 +66,11 @@ def comapare_answers(pred_answer):
         try:
             org_answers[i] = "mrpc sentence1: "+org_answers[i] # model answer
             pred_answer[i] = ". sentence2: "+pred_answer[i] # user answer
+            print(org_answers[i], pred_answer[i])
             tokenized_text = Tokenizer1.encode(org_answers[i]+pred_answer[i], return_tensors="pt")
             summary_ids = t5_base.generate(tokenized_text)
             output = Tokenizer1.decode(summary_ids[0], skip_special_tokens=True)
+            print(output)
             if output == 'equivalent':
                 correct+=1
         except:
@@ -92,25 +93,29 @@ def summarize():
 @app.route("/generate/thequestions", methods=["POST"])
 def thequestions():
     global org_answers
+    questions = []
     req = request.get_json()
     print('Generating SUmmary.....')
     text = get_summary(req['input_text'])
     print('Generating questions.....')
     question_answers = get_questions(text)
     print(question_answers)
-    questions = [a['question'] for a in question_answers if len(a['question']) < 70]
-    org_answers = [a['answer'] for a in question_answers]
+    for a in question_answers:
+        if len(a['question']) < 70:
+            questions.append(a['question'])
+            org_answers.append(a['answer'])
     res = make_response(jsonify({"my_questions": questions}), 200)
     return res
 
 @app.route('/verifyquestions/verifcation', methods=["POST"])
 def verifcation():
+    global org_answers
     print('Verifying answers.......')
     pred_answers = request.get_json()
-    print(pred_answers['predicted_answers'])
     correct_ans = comapare_answers(pred_answers['predicted_answers'])
     print('Answers verified.......')
     correct_ans = 'You answered {} questions correctly!!'.format(correct_ans)
+    org_answers = []
     my_response = make_response(jsonify({"num_of_correct": correct_ans}), 200)
     return my_response
 

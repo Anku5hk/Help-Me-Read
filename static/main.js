@@ -34,13 +34,14 @@ function select_answer(){
 
 function next(a){
   if(a < questions.length){
+      select_answer();
       setTimeout(function (){
           testTypingEffect(questions[a], captionEl2);
       }, 1000);
-      select_answer();
   }
   else{
       // verify button
+      select_answer();
       document.getElementById("input_textbox").hidden = true;
       setTimeout(function (){
         testTypingEffect("Press Evaluate.", captionEl2);
