@@ -30,4 +30,5 @@ transformers 3.1.0 or above
 ## Screens
 Summarize
 ![1](/Streamlit-Version/screens/summary_gif.gif)
+Generate QA
 ![2](/Streamlit-Version/screens/gen_qa_gif.gif)
