@@ -23,11 +23,9 @@ transformers 3.1.0
 
 ## Future
 - Cheap/Efficient Extractive Summarization.
-- Get MiniLM to work.
 - Process large text.
 - Reduce the inference time by using smaller models.
 - Take inputs from URLs directly.
-- Seperate application(besides streamlit version).
 
 ## Screens
 Home
