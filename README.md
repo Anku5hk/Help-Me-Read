@@ -30,8 +30,7 @@ transformers 3.1.0 or above
 - Visit the application in browser at `localhost:5000`
 
 ## Future
-- Cheap/Efficient Extractive Summarization.
-- Get MiniLM to work.
+- Cheap/Efficient Extractive Summarization with ONNX.
 - Take inputs from URLs directly.
 
 ## Screens
