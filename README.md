@@ -30,8 +30,8 @@ transformers 3.1.0 or above
 - Visit the application in browser at `localhost:5000`
 
 ## Future
-- Cheap/Efficient Extractive Summarization with ONNX.
-- Take inputs from URLs directly.
+- Cheap/Efficient Extractive Summarization.
+- Inference using ONNX.
 
 ## Screens
 ![1](/Streamlit-Version/screens/summary_gif.gif)
