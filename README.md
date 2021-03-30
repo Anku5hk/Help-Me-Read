@@ -7,7 +7,7 @@ To get started, user needs to input some text they want to read, then can summar
 
 ## Requirements
 ```
-pytorch 1.8.0 or above
+pytorch 1.6.0 or above
 transformers 3.1.0 or above
 ```
 
