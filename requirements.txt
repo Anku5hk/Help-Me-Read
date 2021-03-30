@@ -56,4 +56,3 @@ wrapt==1.12.1
 yarl==1.6.0
 gunicorn
 gdown
-torch
