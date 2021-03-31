@@ -1,7 +1,9 @@
 import torch, os, gdown
 from flask import Flask, render_template, request, send_from_directory, make_response, jsonify
 from pipelines import pipeline
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer
+from summarizer import Summarizer
+from transformers import DistilBertTokenizer, DistilBertModel
 
 app = Flask(__name__)
 if os.path.isfile('./models/quant-t5-base.pt'):
@@ -9,23 +11,31 @@ if os.path.isfile('./models/quant-t5-base.pt'):
 else:
     print('Downloading models...')
     if not os.path.isdir('models'): os.mkdir('models')
-    url1 = 'https://drive.google.com/uc?id=1FoI1dH1h6inmmjsJRWpKd6qyScQo-7fU'
-    url2 = 'https://drive.google.com/uc?id=1XfWd2qMJLonwa88uUCOfQkDvd9IPIpOF'
-    output1 = "models/qa-qg-t5-small.pt"
+    url1 = 'https://drive.google.com/uc?id=1-3ahaSJEmQFhFBmHnlze_0xgDjSKlUYN'
+    url2 = 'https://drive.google.com/uc?id=1-3MCWlC5Cqt6btBQnWtoidLezn4ybwdA'
+    url3 = 'https://drive.google.com/uc?id=1-IojDSCb9CGG-FqkJn8rWDelCh0QGbBC'
+    output1 = "models/qa-gen-base-t5.pt"
     output2 = "models/quant-t5-base.pt"
+    output3 = "models/distil-bert-base.pt"
     gdown.download(url1, output1, quiet=True)
     gdown.download(url2, output2, quiet=True)
+    gdown.download(url3, output3, quiet=True)
     print('Models downloaded..')
 
 device = 'cpu'
 print("Device used:", device)
 print('Loading models....')
 t5_base = torch.load('models/quant-t5-base.pt', map_location=device) # summarizer, text_similarity
-t5_small_qa_qg = torch.load('models/qa-qg-t5-small.pt', map_location=device) # questions answer generation
 Tokenizer1 = AutoTokenizer.from_pretrained("t5-base" )
+
+t5_small_qa_qg = torch.load('models/qa-gen-small-t5.pt', map_location=device) # questions answer generation
 Tokenizer2 = AutoTokenizer.from_pretrained("valhalla/t5-small-qa-qg-hl" )
 question_generator = pipeline("question-generation", model=t5_small_qa_qg, tokenizer=Tokenizer2, 
-ans_model=t5_small_qa_qg, ans_tokenizer=Tokenizer2, use_cuda=device)
+    ans_model=t5_small_qa_qg, ans_tokenizer=Tokenizer2, use_cuda=device)
+
+Tokenizer3 = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
+distil_bert = torch.load('models/distil-bert-base.pt') # extractive summarization
+ex_summarizer = Summarizer(custom_model=distil_bert, custom_tokenizer=Tokenizer3)
 
 print('Done!!')
 org_answers = []
@@ -53,6 +63,11 @@ def get_summary(text):
     except :
         print('Error.....')   
     return output
+
+# get ex summary(for text highlighting)
+def get_ex_summary(text):
+    result = ex_summarizer(text, min_length=20)
+    return result
 
 # questions and answers
 def get_questions(text):
@@ -103,7 +118,7 @@ def thequestions():
     for a in question_answers:
         if len(a['question']) < 70:
             questions.append(a['question'])
-            org_answers.append(a['answer'])
+            org_answers.append(a['answer'][6:])
     res = make_response(jsonify({"my_questions": questions}), 200)
     return res
 
