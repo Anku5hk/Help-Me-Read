@@ -3,13 +3,13 @@ A web application created with Flask + BootStrap + HuggingFace🤗 to generate s
 #### Some details: 
 This application is created with flask(a python microframework), for NLP models HuggingFace is used and for styling and other purposses HTML+CSS+Javascript is used. 
 The goal was to help user read their text, it can be a blog text, some long passage etc. This application takes advantage of multitask model such as T5 to generate abstractive summary, generate questions from the given text and verify thier answers using a NLP technique called Semantic textual similarity (MRPC in short).
-To get started, user needs to input some text they want to read, then can summarize the given text or also can generate questions based on the texts summary. User can later attend the questions generated to verify their knowledge about the text and can also get results of they did from the model. 
+To get started, user needs to input some text they want to read, then can summarize the given text or also can generate questions based on the texts summary. User can later attend the questions generated to verify their knowledge about the text and can also get results of they did from the model. Models are quantized to save space and increase performance.
 
 ## Requirements
 ```
-python 3.7 or above
-pytorch 1.6.0 or above
-transformers 3.1.0 or above
+python 3.9 or above
+pytorch 1.8.1 or above
+transformers 4.4.2 or above
 ```
 
 ## Installation
@@ -33,6 +33,9 @@ transformers 3.1.0 or above
 ## Future
 - Cheap/Efficient Extractive Summarization.
 - Inference using ONNX.
+
+## Update
+- Support for newer pytorch, transformers versions.
 
 ## Screens
 ![1](/Streamlit-Version/screens/summary_gif.gif)
