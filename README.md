@@ -13,7 +13,7 @@ transformers 3.1.0 or above
 ```
 
 ## Installation
-- Install conda/miniconda.
+- Install [conda/miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Inside Anaconda prompt create a new env `$ conda create --name helpmeread_env`
 - Activate the env `$ conda activate helpmeread_env`
 - Upgrade pip `$ pip install -U pip`
