@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, send_from_directory, make_res
 from pipelines import pipeline
 from transformers import AutoTokenizer
 from summarizer import Summarizer
-from transformers import DistilBertTokenizer, DistilBertModel
 
 app = Flask(__name__)
 if os.path.isfile('./models/quant-t5-base.pt'):
