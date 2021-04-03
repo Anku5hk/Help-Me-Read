@@ -33,10 +33,6 @@ Tokenizer2 = AutoTokenizer.from_pretrained("valhalla/t5-small-qa-qg-hl" )
 question_generator = pipeline("question-generation", model=t5_small_qa_qg, tokenizer=Tokenizer2, 
     ans_model=t5_small_qa_qg, ans_tokenizer=Tokenizer2, use_cuda=device)
 
-Tokenizer3 = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
-distil_bert = torch.load('models/distil-bert-base.pt') # extractive summarization
-ex_summarizer = Summarizer(custom_model=distil_bert, custom_tokenizer=Tokenizer3)
-
 print('Done!!')
 org_answers = []
 
@@ -63,11 +59,6 @@ def get_summary(text):
     except :
         print('Error.....')   
     return output
-
-# get ex summary(for text highlighting)
-def get_ex_summary(text):
-    result = ex_summarizer(text, min_length=20)
-    return result
 
 # questions and answers
 def get_questions(text):
