@@ -1,4 +1,4 @@
-# Help-Me-Read[OLD] [NEW COMING SOON!!]
+# Help-Me-Read[OLD VERSION] [NEW COMING SOON!!]
 A web application created with Flask + BootStrap + HuggingFace🤗 to generate summary and question-answer from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation. For deployment gunicorn(python wsgi server) is used. 
 #### Some details: 
 This application is created with flask(a python microframework), for NLP models HuggingFace is used and for styling and other purposses HTML+CSS+Javascript is used. 
