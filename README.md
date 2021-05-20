@@ -1,4 +1,4 @@
-# Help-Me-Read[OLD VERSION] [NEW COMING SOON!!]
+# Help-Me-Read [NEW COMING SOON!!]
 A web application created with Flask + BootStrap + HuggingFace🤗 to generate summary and question-answer from given input text. It uses [T5 (Text-To-Text Transfer Transformer)](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints) for summaries and ['Question Generation using transformers'](https://github.com/patil-suraj/question_generation) for question answer generation. For deployment gunicorn(python wsgi server) is used. 
 #### Some details: 
 This application is created with flask(a python microframework), for NLP models HuggingFace is used and for styling and other purposses HTML+CSS+Javascript is used. 
@@ -29,10 +29,6 @@ transformers 4.4.2 or above
 - Build image using `docker build --tag helpmeread:1.3 .`
 - Run the image as a container `docker run --publish 5000:5000 --detach --name hmr helpmeread:1.3`
 - Visit the application in browser at `localhost:5000`
-
-## Future
-- Cheap/Efficient Extractive Summarization.
-- Inference using ONNX.
 
 ## Update
 - Support for newer pytorch, transformers versions.
